@@ -1,16 +1,12 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-
+import React from "react";
+import { IpProvider } from "./contexts/ipContext";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Navigate to="/dashboard" />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
-    </Router>
+    <IpProvider>
+      <Home />
+    </IpProvider>
   );
 }
 

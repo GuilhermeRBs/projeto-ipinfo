@@ -1,13 +1,11 @@
-import React, { useState, useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import Dashboard from './Dashboard';
 import DashboardCard from '../components/DashboardCard';
+import { IpContext } from '../contexts/ipContext.js';
 
 const Home = () => {
-  const [ipData, setIpData] = useState(null);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const { ipData, error } = useContext(IpContext);
 
-  // UseMemo para otimizar a exibição da localização
   const formattedLocation = useMemo(() => {
     if (!ipData) return "Carregando...";
     return `${ipData.city}, ${ipData.region}, ${ipData.country}`;
@@ -16,7 +14,7 @@ const Home = () => {
   return (
     <div style={{ padding: '2rem' }}>
       <h1>Dashboard</h1>
-      <Dashboard setIpData={setIpData} setError={setError} isLoading={isLoading} setIsLoading={setIsLoading} />
+      <Dashboard />
 
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
