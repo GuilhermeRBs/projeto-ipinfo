@@ -13,7 +13,8 @@ const Home = () => {
 
   return (
     <div style={{ padding: '2rem' }}>
-      <h1>Dashboard</h1>
+<h1 style={{ textAlign: "center" }}>Consulta de IPs</h1>
+
       <Dashboard />
 
       {error && <p style={{ color: 'red' }}>{error}</p>}
